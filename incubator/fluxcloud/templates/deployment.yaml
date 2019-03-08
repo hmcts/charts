@@ -29,5 +29,5 @@ spec:
         - containerPort: {{ .Values.serviceTargetPort }}
         {{- if .Values.extraEnvs }}
         env:
-        {{ toYaml .Values.extraEnvs | indent 8 }}
+{{ toYaml .Values.extraEnvs | indent 8 }}
         {{- end }}
