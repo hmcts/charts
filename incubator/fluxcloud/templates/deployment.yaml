@@ -27,7 +27,12 @@ spec:
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         ports:
         - containerPort: {{ .Values.serviceTargetPort }}
-        {{- if .Values.extraEnvs }}
+        {{- if or .Values.extraEnvs .Values.secretEnvs }}
         env:
+          {{- if .Values.extraEnvs }}
 {{ toYaml .Values.extraEnvs | indent 8 }}
+          {{- end }}
+          {{- if .Values.secretEnvs }}
+{{ toYaml .Values.secretEnvs | indent 8 }}
+          {{- end }}
         {{- end }}
