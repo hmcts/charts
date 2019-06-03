@@ -36,19 +36,23 @@ servicePort: 80
 serviceTargetPort: 3032
 
 extraEnvs: []
+secretEnvs: []
 #extraEnvs:
-#- name: SLACK_URL
-#  value: "https://hooks.slack.com/services/WEBHOOK_URL"
 #- name: SLACK_CHANNEL
 #  value: "#kubernetes" # Or multiple channels (comma separated <channel>=<namespace>). e.g.: value: "#kubernetes=*,#team=team"
-#- name: SLACK_USERNAME
-#  value: Flux Deployer
 #- name: SLACK_ICON_EMOJI
 #  value: ":heart:"
 #- name: GITHUB_URL
 #  value: "https://github.com/justinbarrick/fluxcloud/"
 #- name: LISTEN_ADDRESS
 #  value: ":3032"
+#secretEnvs:
+#- name: SLACK_URL
+#  value: "https://hooks.slack.com/services/WEBHOOK_URL"
+#- name: SLACK_USERNAME
+#  value: Flux Deployer
 ```
+
+There is really no difference between `extraEnvs` and `secretEnvs` the split is a convenience to allow a set of encrypted values (e.g. sealed secrets) and a set of cleartext values. 
 
 For the available environment variables check the [Fluxcloud documentation]((https://github.com/justinbarrick/fluxcloud))
