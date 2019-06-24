@@ -35,20 +35,20 @@ imagePullPolicy: IfNotPresent
 servicePort: 80
 serviceTargetPort: 3032
 
+environment:
+  LISTEN_ADDRESS : 3032
+  SLACK_USERNAME: "Flux Deployer"
+
 extraEnvs: []
 #extraEnvs:
 #- name: SLACK_URL
 #  value: "https://hooks.slack.com/services/WEBHOOK_URL"
 #- name: SLACK_CHANNEL
 #  value: "#kubernetes" # Or multiple channels (comma separated <channel>=<namespace>). e.g.: value: "#kubernetes=*,#team=team"
-#- name: SLACK_USERNAME
-#  value: Flux Deployer
 #- name: SLACK_ICON_EMOJI
 #  value: ":heart:"
 #- name: GITHUB_URL
 #  value: "https://github.com/justinbarrick/fluxcloud/"
-#- name: LISTEN_ADDRESS
-#  value: ":3032"
 ```
 
 For the available environment variables check the [Fluxcloud documentation]((https://github.com/justinbarrick/fluxcloud))

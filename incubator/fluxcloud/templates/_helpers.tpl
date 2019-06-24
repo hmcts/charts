@@ -29,3 +29,20 @@ Create chart name and version as used by the chart label.
 {{- define "fluxcloud.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{/*
+This template is for adding the environment variable list and checking the format of the keys
+The key or "environment variable" must be uppercase and contain only numbers or "_".
+*/}}
+{{- define "fluxcloud.environment" -}}
+  {{- if .Values.environment -}}
+    {{- range $key, $val := .Values.environment }}
+- name: {{ if $key | regexMatch "^[^.-]+$" -}}
+          {{- $key }}
+        {{- else -}}
+            {{- fail (join "Environment variables can not contain '.' or '-' Failed key: " ($key|quote)) -}}
+        {{- end }}
+  value: {{ tpl ($val | quote) $ }}
+    {{- end }}
+  {{- end }}
+{{- end }}
