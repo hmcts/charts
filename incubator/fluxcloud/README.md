@@ -35,7 +35,7 @@ imagePullPolicy: IfNotPresent
 servicePort: 80
 serviceTargetPort: 3032
 
-env:
+environment:
   LISTEN_ADDRESS : 3032
   SLACK_USERNAME: "Flux Deployer"
 
