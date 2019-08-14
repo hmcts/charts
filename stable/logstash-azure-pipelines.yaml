@@ -16,7 +16,7 @@ jobs:
   steps:
   - template: steps/charts/release.yaml@cnp-library
     parameters :
-      chartName: logstash
+      chartName: stable/logstash
       chartReleaseName: chart-logstash-ci
       chartNamespace: chart-tests
       acrName: "hmctspublic"
