@@ -27,7 +27,10 @@ spec:
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         ports:
         - containerPort: {{ .Values.serviceTargetPort }}
-        {{- if .Values.extraEnvs }}
+        {{- if or .Values.extraEnvs .Values.environment}}
         env:
+{{- if .Values.extraEnvs }}
 {{ toYaml .Values.extraEnvs | indent 8 }}
+{{- end }}
+{{- (include "fluxcloud.environment" .) | indent 8 }}
         {{- end }}
