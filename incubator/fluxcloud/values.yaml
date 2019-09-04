@@ -3,7 +3,7 @@
 replicaCount: 1
 
 imageRepository: justinbarrick/fluxcloud
-imageTag: v0.3.4
+imageTag: v0.3.8
 imagePullPolicy: IfNotPresent
 
 servicePort: 80
