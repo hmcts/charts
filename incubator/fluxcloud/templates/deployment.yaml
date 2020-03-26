@@ -25,6 +25,8 @@ spec:
       - name: fluxcloud
         image: "{{ .Values.imageRepository }}:{{ .Values.imageTag }}"
         imagePullPolicy: {{ .Values.imagePullPolicy }}
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
         ports:
         - containerPort: {{ .Values.serviceTargetPort }}
         {{- if or .Values.extraEnvs .Values.environment}}
