@@ -3,7 +3,7 @@
 replicaCount: 1
 
 imageRepository: justinbarrick/fluxcloud
-imageTag: v0.3.4
+imageTag: v0.3.8
 imagePullPolicy: IfNotPresent
 
 servicePort: 80
@@ -23,3 +23,4 @@ extraEnvs: []
 #  value: "https://github.com/justinbarrick/fluxcloud/"
 #- name: LISTEN_ADDRESS
 #  value: ":3032"
+resources: {}
