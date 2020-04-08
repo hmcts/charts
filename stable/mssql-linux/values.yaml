@@ -5,6 +5,8 @@ edition:
 collation: SQL_Latin1_General_CP1_CI_AS
 lcid: 1033
 hadr: 0
+agent:
+  enabled: false
 # Override sapassword in templates/secret.yaml
 # sapassword: "MyStrongPassword1234"
 existingSecret: ""
@@ -28,8 +30,10 @@ service:
   headless: false
   type: ClusterIP
   port: 1433
+  nodePort:
   annotations: {}
   labels: {}
+  loadBalancerIP:
 deployment:
   annotations: {}
   labels: {}
@@ -66,3 +70,10 @@ resources:
   #  memory: 2Gi
 nodeSelector: {}
   # kubernetes.io/hostname: minikube
+
+tolerations: []
+
+affinity: {}
+
+securityContext: {}
+  # runAsUser: 1000
